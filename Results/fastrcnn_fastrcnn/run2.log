@@ -1,0 +1,37 @@
+[Setup] FLIR structure already correct at /home/exouser/Downloads/thermal_mirage/FLIR_ADAS_1_3
+[Device] Using GPU: NVIDIA H100 80GB HBM3  (79.2 GB VRAM)
+
+[ThermalMirage] Mode=train_gan  Device=cuda
+  src_class=0  tgt_class=-1
+  attack_mode=hide  scene=night
+[Mode] Training Thermal GAN
+[FLIRDataset] Annotations : /home/exouser/Downloads/thermal_mirage/FLIR_ADAS_1_3/train/thermal_annotations.json
+[FLIRDataset] Class mapping (json_cat_id → internal_idx → name):
+  json_id=  1  →  internal_idx=0  →  person
+  json_id=  2  →  internal_idx=1  →  bicycle
+  json_id=  3  →  internal_idx=2  →  car
+  json_id= 17  →  internal_idx=3  →  dog
+[FLIRDataset] Images dir  : /home/exouser/Downloads/thermal_mirage/FLIR_ADAS_1_3/train/thermal_8_bit
+[FLIRDataset] split=train  loaded=7860  skipped(no_image)=0
+[FLIRDataset] WARNING: expected ~8862 images for split='train', got 7860. Check your data_root or annotation file.
+[FLIRCropDataset] 52228 crops indexed (min_area=400, split=train)
+[ThermalGANTrainer] Running on cuda
+[GAN] Training for 150 epochs on cuda
+  Epoch   10/150  D=1.3522  G=0.6475  D(real)=0.626  D(fake)=0.365
+  Epoch   20/150  D=1.2439  G=0.8008  D(real)=0.664  D(fake)=0.369
+  Epoch   30/150  D=1.1926  G=0.8165  D(real)=0.669  D(fake)=0.361
+  Epoch   40/150  D=1.1187  G=0.8782  D(real)=0.683  D(fake)=0.356
+  Epoch   50/150  D=1.0826  G=0.9004  D(real)=0.690  D(fake)=0.353
+  Epoch   60/150  D=1.0085  G=0.9503  D(real)=0.701  D(fake)=0.341
+  Epoch   70/150  D=0.9886  G=0.9906  D(real)=0.708  D(fake)=0.342
+  Epoch   80/150  D=0.9472  G=1.0083  D(real)=0.715  D(fake)=0.337
+  Epoch   90/150  D=0.9210  G=1.0094  D(real)=0.717  D(fake)=0.332
+  Epoch  100/150  D=0.9062  G=1.0210  D(real)=0.719  D(fake)=0.330
+  Epoch  110/150  D=0.8929  G=1.0211  D(real)=0.721  D(fake)=0.330
+  Epoch  120/150  D=0.8338  G=1.0859  D(real)=0.732  D(fake)=0.322
+  Epoch  130/150  D=0.8223  G=1.0819  D(real)=0.730  D(fake)=0.318
+  Epoch  140/150  D=0.8367  G=1.0537  D(real)=0.728  D(fake)=0.321
+  Epoch  150/150  D=0.8062  G=1.0830  D(real)=0.733  D(fake)=0.318
+[GAN] Training complete.
+[GAN] Saved checkpoint -> checkpoints/thermal_gan.pt
+[Done] GAN training complete.

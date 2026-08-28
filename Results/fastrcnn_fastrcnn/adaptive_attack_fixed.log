@@ -1,0 +1,1232 @@
+nohup: ignoring input
+/home/exouser/.conda/envs/flir/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/exouser/.conda/envs/flir/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+[Info] Using utils.visualize for visualization
+[Info] Full ThermalMirageAttack is available
+
+============================================================
+  MODE: ATTACK (ADAPTIVE) - Multi-Class Attack
+============================================================
+[Setup] Loading GAN from checkpoints/thermal_gan.pt
+[ThermalGANTrainer] Running on cuda
+[GAN] Loaded checkpoint <- checkpoints/thermal_gan.pt
+[ThermalGANTrainer] Running on cuda
+[GAN] Loaded checkpoint <- checkpoints/thermal_gan.pt
+[Setup] Loading detector...
+[FasterRCNN] head: 5 classes (background + 4 FLIR classes)
+  background=0, person=1, bicycle=2, car=3, dog=4
+[Detector] Loaded checkpoint <- checkpoints/fasterrcnn_flir.pt
+[Setup] Building class priors...
+  [Prior] Using feature level 'pool' from backbone
+  [Prior] class 0: mean feat shape = torch.Size([256])
+  [Prior] class 1: mean feat shape = torch.Size([256])
+  [Prior] class 2: mean feat shape = torch.Size([256])
+  [Prior] class 3: mean feat shape = torch.Size([256])
+[Setup] Initializing full ThermalMirageAttack engine...
+[Setup] No diffusion checkpoint supplied; object branch will use FGSM fallback when needed
+[Setup] Context branch will use physics-informed contrast/smoothing/cooling attack
+[Setup] Full attack engine ready | context_attack=sequential
+[FLIRDataset] Annotations : /home/exouser/Downloads/thermal_mirage/FLIR_ADAS_1_3/val/thermal_annotations.json
+[FLIRDataset] Class mapping (json_cat_id → internal_idx → name):
+  json_id=  1  →  internal_idx=0  →  person
+  json_id=  2  →  internal_idx=1  →  bicycle
+  json_id=  3  →  internal_idx=2  →  car
+  json_id= 17  →  internal_idx=3  →  dog
+[FLIRDataset] Images dir  : /home/exouser/Downloads/thermal_mirage/FLIR_ADAS_1_3/val/thermal_8_bit
+[FLIRDataset] split=val  loaded=1360  skipped(no_image)=0
+[FLIRDataset] Size check OK: 1360 images (expected ~1366)
+
+============================================================
+Image 1: ID=0 | 5 objects
+============================================================
+
+[AttackSelector] Processing 5 objects in image...
+  Object 1/5: person at [0.90625, 0.40234375, 0.9593750238418579, 0.548828125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.985 | pert=0.1327
+  Object 2/5: person at [0.9515625238418579, 0.404296875, 0.9984375238418579, 0.630859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 3/5: car at [0.7328125238418579, 0.44140625, 0.7796875238418579, 0.4921875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 4/5: car at [0.721875011920929, 0.44921875, 0.745312511920929, 0.4765625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 5/5: car at [0.45781248807907104, 0.443359375, 0.518750011920929, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+
+============================================================
+Image 2: ID=1 | 5 objects
+============================================================
+
+[AttackSelector] Processing 5 objects in image...
+  Object 1/5: car at [0.33125001192092896, 0.44140625, 0.390625, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 2/5: person at [0.5765625238418579, 0.376953125, 0.692187488079071, 0.623046875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1311
+  Object 3/5: person at [0.762499988079071, 0.375, 0.839062511920929, 0.63671875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.972 | pert=0.1261
+  Object 4/5: person at [0.8500000238418579, 0.390625, 0.8999999761581421, 0.59375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+  Object 5/5: person at [0.815625011920929, 0.38671875, 0.864062488079071, 0.572265625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+
+============================================================
+Image 3: ID=2 | 11 objects
+============================================================
+
+[AttackSelector] Processing 11 objects in image...
+  Object 1/11: person at [0.3499999940395355, 0.41015625, 0.40312498807907104, 0.607421875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.995 | pert=0.1344
+  Object 2/11: person at [0.2953124940395355, 0.39453125, 0.37968748807907104, 0.6171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+  Object 3/11: person at [0.48750001192092896, 0.39453125, 0.598437488079071, 0.634765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 4/11: person at [0.6031249761581421, 0.40234375, 0.640625, 0.591796875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.963 | pert=0.1327
+  Object 5/11: person at [0.637499988079071, 0.3984375, 0.6734374761581421, 0.59375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 6/11: person at [0.6875, 0.408203125, 0.75, 0.595703125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 7/11: car at [0.784375011920929, 0.40234375, 0.956250011920929, 0.5]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1284
+  Object 8/11: car at [0.24687500298023224, 0.443359375, 0.3031249940395355, 0.498046875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 9/11: person at [0.6734374761581421, 0.3984375, 0.6953125, 0.4375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 10/11: person at [0.690625011920929, 0.400390625, 0.7124999761581421, 0.443359375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 11/11: person at [0.746874988079071, 0.39453125, 0.765625, 0.509765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+
+============================================================
+Image 4: ID=3 | 13 objects
+============================================================
+
+[AttackSelector] Processing 13 objects in image...
+  Object 1/13: car at [0.22031250596046448, 0.4453125, 0.28125, 0.5]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1249
+  Object 2/13: car at [0.5, 0.435546875, 0.53125, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1344
+  Object 3/13: car at [0.5296875238418579, 0.447265625, 0.5796874761581421, 0.515625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1344
+  Object 4/13: car at [0.6000000238418579, 0.41015625, 0.6812499761581421, 0.50390625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 5/13: person at [0.7406250238418579, 0.3984375, 0.7749999761581421, 0.53515625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+  Object 6/13: person at [0.703125, 0.396484375, 0.7250000238418579, 0.517578125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1259
+  Object 7/13: person at [0.668749988079071, 0.396484375, 0.7093750238418579, 0.53125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.991 | pert=0.1294
+  Object 8/13: person at [0.543749988079071, 0.3984375, 0.6265624761581421, 0.59765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 9/13: person at [0.46562498807907104, 0.40234375, 0.510937511920929, 0.59765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.995 | pert=0.1344
+  Object 10/13: person at [0.5093749761581421, 0.546875, 0.5328124761581421, 0.59375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 11/13: person at [0.32343751192092896, 0.3984375, 0.42656248807907104, 0.625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 12/13: person at [0.17499999701976776, 0.42578125, 0.24531249701976776, 0.611328125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1294
+  Object 13/13: person at [0.13124999403953552, 0.396484375, 0.18593749403953552, 0.611328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+
+============================================================
+Image 5: ID=4 | 13 objects
+============================================================
+
+[AttackSelector] Processing 13 objects in image...
+  Object 1/13: person at [0.739062488079071, 0.39453125, 0.7828124761581421, 0.541015625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 2/13: person at [0.6968749761581421, 0.392578125, 0.723437488079071, 0.5078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.983 | pert=0.1327
+  Object 3/13: person at [0.676562488079071, 0.390625, 0.7093750238418579, 0.53515625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.988 | pert=0.1344
+  Object 4/13: car at [0.4765625, 0.41796875, 0.504687488079071, 0.501953125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 5/13: car at [0.37031251192092896, 0.41015625, 0.45781248807907104, 0.509765625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 6/13: car at [0.29374998807907104, 0.44921875, 0.35624998807907104, 0.521484375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+  Object 7/13: person at [0.4203124940395355, 0.3984375, 0.5015624761581421, 0.59765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.986 | pert=0.1344
+  Object 8/13: person at [0.3343749940395355, 0.396484375, 0.390625, 0.599609375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 9/13: person at [0.20468750596046448, 0.390625, 0.2984375059604645, 0.62109375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 10/13: person at [0.05000000074505806, 0.416015625, 0.10312499850988388, 0.607421875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1277
+  Object 11/13: person at [0.0031250000465661287, 0.3984375, 0.05937499925494194, 0.609375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 12/13: car at [0.7718750238418579, 0.416015625, 0.9078124761581421, 0.501953125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 13/13: car at [0.49687498807907104, 0.435546875, 0.53125, 0.486328125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1207
+
+============================================================
+Image 6: ID=5 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: car at [0.05781250074505806, 0.4609375, 0.11093749850988388, 0.533203125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.986 | pert=0.1327
+  Object 2/10: car at [0.15000000596046448, 0.42578125, 0.23125000298023224, 0.521484375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 3/10: car at [0.48124998807907104, 0.435546875, 0.5249999761581421, 0.48046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1261
+  Object 4/10: car at [0.5718749761581421, 0.431640625, 0.6781250238418579, 0.505859375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 5/10: person at [0.08906249701976776, 0.396484375, 0.17656250298023224, 0.619140625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1269
+  Object 6/10: person at [0.21718749403953552, 0.408203125, 0.27656251192092896, 0.6015625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 7/10: person at [0.29374998807907104, 0.404296875, 0.375, 0.599609375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1294
+  Object 8/10: person at [0.659375011920929, 0.390625, 0.7109375, 0.552734375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1327
+  Object 9/10: person at [0.721875011920929, 0.380859375, 0.7437499761581421, 0.515625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 10/10: person at [0.729687511920929, 0.3828125, 0.7749999761581421, 0.54296875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+
+============================================================
+Image 7: ID=6 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: car at [0.0, 0.431640625, 0.02500000037252903, 0.533203125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 2/9: person at [0.00937500037252903, 0.40625, 0.0703125, 0.609375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 3/9: person at [0.10468749701976776, 0.416015625, 0.15000000596046448, 0.595703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.904 | pert=0.1327
+  Object 4/9: person at [0.13437500596046448, 0.412109375, 0.19218750298023224, 0.599609375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 5/9: person at [0.1953125, 0.40625, 0.26249998807907104, 0.59375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.780 | pert=0.1271
+  Object 6/9: person at [0.5921875238418579, 0.38671875, 0.651562511920929, 0.564453125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1311
+  Object 7/9: person at [0.6578124761581421, 0.400390625, 0.6953125, 0.5546875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 8/9: person at [0.707812488079071, 0.392578125, 0.754687488079071, 0.552734375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 9/9: car at [0.4453125, 0.435546875, 0.5921875238418579, 0.5078125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+
+============================================================
+Image 8: ID=7 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: person at [0.02500000037252903, 0.41796875, 0.07187499850988388, 0.58984375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 2/10: person at [0.07343749701976776, 0.412109375, 0.12968750298023224, 0.595703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.767 | pert=0.1344
+  Object 3/10: person at [0.12031249701976776, 0.41015625, 0.1640625, 0.58984375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 4/10: person at [0.5093749761581421, 0.390625, 0.5687500238418579, 0.5703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 5/10: person at [0.6078125238418579, 0.392578125, 0.643750011920929, 0.5546875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 6/10: car at [0.48124998807907104, 0.43359375, 0.5171874761581421, 0.484375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 7/10: car at [0.3984375, 0.4296875, 0.4937500059604645, 0.5]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 8/10: car at [0.21718749403953552, 0.44140625, 0.2734375, 0.4921875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1271
+  Object 9/10: person at [0.659375011920929, 0.39453125, 0.6859375238418579, 0.55078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 10/10: person at [0.703125, 0.40234375, 0.7265625, 0.53515625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+
+============================================================
+Image 9: ID=8 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: car at [0.3828125, 0.423828125, 0.4281249940395355, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.906 | pert=0.1327
+  Object 2/10: car at [0.21718749403953552, 0.44140625, 0.27031248807907104, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 3/10: car at [0.4781250059604645, 0.439453125, 0.5234375, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 4/10: car at [0.8062499761581421, 0.43359375, 0.8687499761581421, 0.509765625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 5/10: person at [0.6156250238418579, 0.3984375, 0.667187511920929, 0.564453125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1344
+  Object 6/10: person at [0.5874999761581421, 0.3984375, 0.6312500238418579, 0.5703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.968 | pert=0.1344
+  Object 7/10: person at [0.520312488079071, 0.400390625, 0.5687500238418579, 0.564453125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 8/10: person at [0.40937501192092896, 0.39453125, 0.484375, 0.583984375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.995 | pert=0.1327
+  Object 9/10: person at [0.03750000149011612, 0.41796875, 0.07187499850988388, 0.59375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 10/10: person at [0.0, 0.423828125, 0.05781250074505806, 0.6015625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+
+============================================================
+Image 10: ID=9 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: person at [0.9546874761581421, 0.275390625, 0.996874988079071, 0.568359375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 2/9: person at [0.3140625059604645, 0.39453125, 0.4046874940395355, 0.58203125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 3/9: person at [0.0546875, 0.431640625, 0.07500000298023224, 0.509765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 4/9: person at [0.42500001192092896, 0.404296875, 0.4921875, 0.5703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1277
+  Object 5/9: person at [0.4937500059604645, 0.3984375, 0.551562488079071, 0.580078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1344
+  Object 6/9: person at [0.5296875238418579, 0.400390625, 0.574999988079071, 0.56640625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 7/9: car at [0.390625, 0.431640625, 0.44062501192092896, 0.490234375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 8/9: car at [0.21406249701976776, 0.4453125, 0.27031248807907104, 0.490234375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 9/9: car at [0.565625011920929, 0.42578125, 0.690625011920929, 0.513671875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+
+============================================================
+Image 11: ID=10 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: person at [0.09375, 0.431640625, 0.12031249701976776, 0.5078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.996 | pert=0.1327
+  Object 2/9: person at [0.24843749403953552, 0.400390625, 0.30156248807907104, 0.580078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+  Object 3/9: person at [0.3203125, 0.40234375, 0.39531248807907104, 0.578125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1292
+  Object 4/9: person at [0.39375001192092896, 0.3984375, 0.4625000059604645, 0.583984375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+  Object 5/9: person at [0.4437499940395355, 0.39453125, 0.48750001192092896, 0.576171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.992 | pert=0.1344
+  Object 6/9: car at [0.48124998807907104, 0.43359375, 0.5249999761581421, 0.484375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 7/9: car at [0.296875, 0.431640625, 0.3531250059604645, 0.5234375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 8/9: car at [0.15625, 0.439453125, 0.2671875059604645, 0.525390625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+  Object 9/9: person at [0.8734375238418579, 0.30078125, 0.9515625238418579, 0.609375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.836 | pert=0.1344
+
+============================================================
+Image 12: ID=11 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: person at [0.35468751192092896, 0.40234375, 0.4046874940395355, 0.583984375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.009 | pert=0.1311
+  Object 2/10: person at [0.2906250059604645, 0.400390625, 0.36250001192092896, 0.587890625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1344
+  Object 3/10: person at [0.22343750298023224, 0.4140625, 0.3062500059604645, 0.58203125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1311
+  Object 4/10: person at [0.16562500596046448, 0.40234375, 0.22499999403953552, 0.580078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+  Object 5/10: person at [0.14531250298023224, 0.431640625, 0.16718749701976776, 0.505859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.990 | pert=0.1327
+  Object 6/10: car at [0.4046874940395355, 0.43359375, 0.4468750059604645, 0.48046875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1241
+  Object 7/10: car at [0.0015625000232830644, 0.44921875, 0.05624999850988388, 0.533203125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 8/10: car at [0.4749999940395355, 0.4375, 0.5234375, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1261
+  Object 9/10: person at [0.8187500238418579, 0.322265625, 0.8828125, 0.5859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1311
+  Object 10/10: person at [0.13437500596046448, 0.4296875, 0.15468749403953552, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1206
+
+============================================================
+Image 13: ID=12 | 12 objects
+============================================================
+
+[AttackSelector] Processing 12 objects in image...
+  Object 1/12: car at [0.27656251192092896, 0.4140625, 0.47968751192092896, 0.546875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 2/12: car at [0.22343750298023224, 0.41796875, 0.265625, 0.55078125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.321 | pert=0.1344
+  Object 3/12: car at [0.4765625, 0.435546875, 0.5234375, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1294
+  Object 4/12: car at [0.4156250059604645, 0.435546875, 0.4468750059604645, 0.46875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=-0.002 | pert=0.1194
+  Object 5/12: car at [0.671875, 0.4375, 0.692187488079071, 0.498046875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.001 | pert=0.1311
+  Object 6/12: car at [0.706250011920929, 0.3984375, 0.801562488079071, 0.5]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 7/12: car at [0.832812488079071, 0.39453125, 0.870312511920929, 0.494140625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 8/12: person at [0.7906249761581421, 0.33984375, 0.8500000238418579, 0.578125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 9/12: person at [0.2515625059604645, 0.40625, 0.30156248807907104, 0.5859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 10/12: person at [0.18437500298023224, 0.40625, 0.26249998807907104, 0.595703125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1276
+  Object 11/12: person at [0.11562500149011612, 0.41015625, 0.19374999403953552, 0.58203125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 12/12: person at [0.07656250149011612, 0.41015625, 0.13437500596046448, 0.58203125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+
+============================================================
+Image 14: ID=13 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: person at [0.807812511920929, 0.361328125, 0.8656250238418579, 0.5703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1344
+  Object 2/9: person at [0.265625, 0.427734375, 0.28437501192092896, 0.509765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 3/9: person at [0.24843749403953552, 0.42578125, 0.2718749940395355, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 4/9: car at [0.21250000596046448, 0.44140625, 0.26249998807907104, 0.494140625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 5/9: person at [0.14531250298023224, 0.412109375, 0.20468750596046448, 0.58984375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1294
+  Object 6/9: person at [0.07500000298023224, 0.41015625, 0.14687499403953552, 0.59375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 7/9: person at [0.015625, 0.4140625, 0.07187499850988388, 0.58984375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 8/9: person at [0.0, 0.423828125, 0.02812499925494194, 0.5859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 9/9: car at [0.3218750059604645, 0.404296875, 0.550000011920929, 0.51953125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+
+============================================================
+Image 15: ID=14 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: person at [0.0625, 0.41796875, 0.12031249701976776, 0.587890625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.012 | pert=0.1294
+  Object 2/8: person at [0.30937498807907104, 0.427734375, 0.34375, 0.509765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1308
+  Object 3/8: person at [0.30156248807907104, 0.423828125, 0.3218750059604645, 0.498046875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.018 | pert=0.1244
+  Object 4/8: car at [0.48124998807907104, 0.43359375, 0.526562511920929, 0.486328125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 5/8: car at [0.10000000149011612, 0.423828125, 0.1953125, 0.53125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 6/8: car at [0.0, 0.423828125, 0.07656250149011612, 0.52734375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1311
+  Object 7/8: car at [0.21406249701976776, 0.44140625, 0.2734375, 0.49609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 8/8: car at [0.4375, 0.44140625, 0.4609375, 0.474609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.007 | pert=0.1261
+
+============================================================
+Image 16: ID=15 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: car at [0.48124998807907104, 0.439453125, 0.5234375, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.953 | pert=0.1294
+  Object 2/8: car at [0.574999988079071, 0.421875, 0.6859375238418579, 0.513671875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 3/8: car at [0.706250011920929, 0.416015625, 0.7640625238418579, 0.5078125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 4/8: car at [0.21406249701976776, 0.439453125, 0.2718749940395355, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+  Object 5/8: car at [0.43437498807907104, 0.439453125, 0.46562498807907104, 0.46875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 6/8: person at [0.3671875, 0.416015625, 0.3890624940395355, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 7/8: person at [0.35468751192092896, 0.41796875, 0.375, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 8/8: person at [0.0, 0.423828125, 0.02812499925494194, 0.5859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1344
+
+============================================================
+Image 17: ID=16 | 4 objects
+============================================================
+
+[AttackSelector] Processing 4 objects in image...
+  Object 1/4: car at [0.17812499403953552, 0.4296875, 0.37187498807907104, 0.5234375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1311
+  Object 2/4: person at [0.4078125059604645, 0.41796875, 0.44218748807907104, 0.50390625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1308
+  Object 3/4: car at [0.4390625059604645, 0.439453125, 0.4703125059604645, 0.46484375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1327
+  Object 4/4: car at [0.4765625, 0.439453125, 0.5234375, 0.48046875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1218
+
+============================================================
+Image 18: ID=17 | 4 objects
+============================================================
+
+[AttackSelector] Processing 4 objects in image...
+  Object 1/4: person at [0.84375, 0.373046875, 0.878125011920929, 0.5625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.874 | pert=0.1311
+  Object 2/4: car at [0.0015625000232830644, 0.4140625, 0.1015625, 0.541015625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 3/4: car at [0.21406249701976776, 0.439453125, 0.27656251192092896, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1227
+  Object 4/4: car at [0.48124998807907104, 0.435546875, 0.528124988079071, 0.48046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+
+============================================================
+Image 19: ID=18 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: person at [0.046875, 0.435546875, 0.06875000149011612, 0.505859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.327 | pert=0.1311
+  Object 2/7: car at [0.0, 0.416015625, 0.05937499925494194, 0.513671875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 3/7: car at [0.21250000596046448, 0.44140625, 0.2734375, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1261
+  Object 4/7: car at [0.4781250059604645, 0.4375, 0.5249999761581421, 0.48046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1301
+  Object 5/7: person at [0.768750011920929, 0.373046875, 0.8296874761581421, 0.56640625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1294
+  Object 6/7: person at [0.07187499850988388, 0.43359375, 0.09218750149011612, 0.50390625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1291
+  Object 7/7: person at [0.09062500298023224, 0.4296875, 0.11093749850988388, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+
+============================================================
+Image 20: ID=19 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: person at [0.7124999761581421, 0.369140625, 0.7671874761581421, 0.572265625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1317
+  Object 2/8: car at [0.4828124940395355, 0.4375, 0.526562511920929, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+  Object 3/8: car at [0.20937499403953552, 0.44140625, 0.27031248807907104, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1294
+  Object 4/8: person at [0.1171875, 0.44140625, 0.14374999701976776, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.996 | pert=0.1294
+  Object 5/8: person at [0.04531250149011612, 0.435546875, 0.06718750298023224, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1227
+  Object 6/8: person at [0.02656250074505806, 0.435546875, 0.05156249925494194, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1177
+  Object 7/8: person at [0.0031250000465661287, 0.44140625, 0.02812499925494194, 0.51171875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 8/8: person at [0.09375, 0.4375, 0.11562500149011612, 0.509765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+
+============================================================
+Image 21: ID=20 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: car at [0.47968751192092896, 0.43359375, 0.5249999761581421, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.991 | pert=0.1269
+  Object 2/8: car at [0.20937499403953552, 0.44140625, 0.26875001192092896, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 3/8: person at [0.640625, 0.369140625, 0.690625011920929, 0.5703125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 4/8: person at [0.14531250298023224, 0.439453125, 0.1796875, 0.50390625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 5/8: person at [0.18125000596046448, 0.43359375, 0.20624999701976776, 0.50390625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1240
+  Object 6/8: person at [0.11249999701976776, 0.44140625, 0.13437500596046448, 0.505859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.996 | pert=0.1294
+  Object 7/8: person at [0.06875000149011612, 0.435546875, 0.09687499701976776, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 8/8: person at [0.0234375, 0.439453125, 0.046875, 0.509765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+
+============================================================
+Image 22: ID=21 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: person at [0.604687511920929, 0.369140625, 0.6703125238418579, 0.578125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+  Object 2/10: person at [0.23281249403953552, 0.435546875, 0.265625, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.003 | pert=0.1227
+  Object 3/10: person at [0.22031250596046448, 0.4375, 0.24062499403953552, 0.513671875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1224
+  Object 4/10: person at [0.15781250596046448, 0.4375, 0.1875, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.010 | pert=0.1244
+  Object 5/10: person at [0.12031249701976776, 0.4375, 0.14531250298023224, 0.51171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.992 | pert=0.1294
+  Object 6/10: person at [0.09062500298023224, 0.43359375, 0.11249999701976776, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1211
+  Object 7/10: person at [0.07343749701976776, 0.43359375, 0.09687499701976776, 0.494140625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.982 | pert=0.1277
+  Object 8/10: person at [0.05156249925494194, 0.4375, 0.07656250149011612, 0.51171875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+  Object 9/10: car at [0.4781250059604645, 0.435546875, 0.5249999761581421, 0.486328125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.001 | pert=0.1180
+  Object 10/10: person at [0.1875, 0.4375, 0.20156249403953552, 0.490234375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+
+============================================================
+Image 23: ID=22 | 15 objects
+============================================================
+
+[AttackSelector] Processing 15 objects in image...
+  Object 1/15: car at [0.645312488079071, 0.458984375, 0.6937500238418579, 0.509765625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.993 | pert=0.1294
+  Object 2/15: car at [0.706250011920929, 0.423828125, 0.8046875, 0.501953125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 3/15: car at [0.4781250059604645, 0.43359375, 0.5140625238418579, 0.484375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1274
+  Object 4/15: person at [0.4984374940395355, 0.39453125, 0.5796874761581421, 0.59765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.996 | pert=0.1344
+  Object 5/15: person at [0.296875, 0.435546875, 0.3218750059604645, 0.505859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.975 | pert=0.1244
+  Object 6/15: person at [0.2718749940395355, 0.427734375, 0.3031249940395355, 0.515625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1277
+  Object 7/15: car at [0.21875, 0.4453125, 0.26875001192092896, 0.49609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 8/15: person at [0.19062499701976776, 0.439453125, 0.21406249701976776, 0.509765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1207
+  Object 9/15: person at [0.1015625, 0.4375, 0.12343750149011612, 0.501953125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1257
+  Object 10/15: person at [0.08281250298023224, 0.431640625, 0.10468749701976776, 0.501953125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 11/15: person at [0.0625, 0.439453125, 0.08749999850988388, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 12/15: person at [0.02812499925494194, 0.44140625, 0.05156249925494194, 0.513671875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1095
+  Object 13/15: person at [0.004687500186264515, 0.443359375, 0.02500000037252903, 0.513671875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 14/15: person at [0.20468750596046448, 0.43359375, 0.22968749701976776, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1241
+  Object 15/15: person at [0.16718749701976776, 0.443359375, 0.19374999403953552, 0.51171875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1253
+
+============================================================
+Image 24: ID=23 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: car at [0.12968750298023224, 0.4453125, 0.3828125, 0.541015625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1311
+  Object 2/8: car at [0.42656248807907104, 0.43359375, 0.528124988079071, 0.51171875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 3/8: person at [0.3765625059604645, 0.3984375, 0.45781248807907104, 0.6015625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+  Object 4/8: person at [0.34843748807907104, 0.427734375, 0.3765625059604645, 0.48046875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 5/8: person at [0.3265624940395355, 0.431640625, 0.3515625, 0.478515625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.996 | pert=0.1294
+  Object 6/8: person at [0.06562499701976776, 0.435546875, 0.09218750149011612, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 7/8: person at [0.04218750074505806, 0.4375, 0.06406249850988388, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 8/8: person at [0.02656250074505806, 0.435546875, 0.046875, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+
+============================================================
+Image 25: ID=24 | 11 objects
+============================================================
+
+[AttackSelector] Processing 11 objects in image...
+  Object 1/11: person at [0.25312501192092896, 0.400390625, 0.3296875059604645, 0.603515625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1344
+  Object 2/11: person at [0.3578124940395355, 0.427734375, 0.3921875059604645, 0.509765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1294
+  Object 3/11: person at [0.40625, 0.427734375, 0.42656248807907104, 0.50390625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1311
+  Object 4/11: car at [0.47968751192092896, 0.435546875, 0.5249999761581421, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 5/11: car at [0.6640625, 0.4296875, 0.692187488079071, 0.52734375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1211
+  Object 6/11: car at [0.706250011920929, 0.423828125, 0.875, 0.533203125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 7/11: car at [0.21250000596046448, 0.4375, 0.26249998807907104, 0.49609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 8/11: car at [0.02031249925494194, 0.443359375, 0.1875, 0.53125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 9/11: person at [0.06875000149011612, 0.431640625, 0.08906249701976776, 0.466796875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1246
+  Object 10/11: person at [0.05624999850988388, 0.435546875, 0.07187499850988388, 0.482421875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 11/11: person at [0.04374999925494194, 0.43359375, 0.06406249850988388, 0.48046875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+
+============================================================
+Image 26: ID=25 | 12 objects
+============================================================
+
+[AttackSelector] Processing 12 objects in image...
+  Object 1/12: person at [0.08124999701976776, 0.43359375, 0.10468749701976776, 0.5078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1311
+  Object 2/12: person at [0.06406249850988388, 0.431640625, 0.09062500298023224, 0.509765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+  Object 3/12: person at [0.13750000298023224, 0.40625, 0.22499999403953552, 0.60546875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 4/12: car at [0.21718749403953552, 0.44140625, 0.2718749940395355, 0.5]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1311
+  Object 5/12: car at [0.48124998807907104, 0.4375, 0.526562511920929, 0.48828125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 6/12: car at [0.5531250238418579, 0.39453125, 0.6875, 0.515625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.993 | pert=0.1327
+  Object 7/12: car at [0.7124999761581421, 0.392578125, 0.828125, 0.501953125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 8/12: person at [0.4625000059604645, 0.427734375, 0.4906249940395355, 0.505859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 9/12: person at [0.40312498807907104, 0.43359375, 0.4375, 0.505859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 10/12: person at [0.3421874940395355, 0.4296875, 0.37187498807907104, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 11/12: person at [0.3218750059604645, 0.4296875, 0.3421874940395355, 0.51171875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 12/12: person at [0.30000001192092896, 0.423828125, 0.3265624940395355, 0.513671875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+
+============================================================
+Image 27: ID=26 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: car at [0.0, 0.45703125, 0.04531250149011612, 0.556640625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.984 | pert=0.1311
+  Object 2/7: car at [0.08281250298023224, 0.44140625, 0.26249998807907104, 0.556640625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 3/7: car at [0.2593750059604645, 0.392578125, 0.528124988079071, 0.5234375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 4/7: person at [0.629687488079071, 0.412109375, 0.651562511920929, 0.49609375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 5/7: person at [0.520312488079071, 0.423828125, 0.5406249761581421, 0.4921875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1277
+  Object 6/7: person at [0.02031249925494194, 0.41015625, 0.10625000298023224, 0.6015625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 7/7: car at [0.21718749403953552, 0.44140625, 0.2671875059604645, 0.48828125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1227
+
+============================================================
+Image 28: ID=27 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: person at [0.578125, 0.4140625, 0.604687511920929, 0.46484375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1344
+  Object 2/9: person at [0.5625, 0.416015625, 0.582812488079071, 0.451171875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 3/9: person at [0.65625, 0.4140625, 0.6796875, 0.4765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1261
+  Object 4/9: person at [0.41718751192092896, 0.42578125, 0.44062501192092896, 0.455078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.002 | pert=0.1244
+  Object 5/9: person at [0.4000000059604645, 0.421875, 0.4234375059604645, 0.462890625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.014 | pert=0.1244
+  Object 6/9: car at [0.7171875238418579, 0.404296875, 0.8734375238418579, 0.5078125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 7/9: car at [0.37968748807907104, 0.427734375, 0.675000011920929, 0.546875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1277
+  Object 8/9: car at [0.21406249701976776, 0.44140625, 0.2734375, 0.498046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1257
+  Object 9/9: car at [0.0, 0.41015625, 0.20468750596046448, 0.529296875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.957 | pert=0.1327
+
+============================================================
+Image 29: ID=28 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: person at [0.44843751192092896, 0.42578125, 0.4671874940395355, 0.458984375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.974 | pert=0.1344
+  Object 2/10: person at [0.4312500059604645, 0.423828125, 0.4515624940395355, 0.462890625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.119 | pert=0.1289
+  Object 3/10: person at [0.6031249761581421, 0.42578125, 0.6328125, 0.482421875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1211
+  Object 4/10: person at [0.6343749761581421, 0.416015625, 0.6625000238418579, 0.478515625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.001 | pert=0.1261
+  Object 5/10: car at [0.800000011920929, 0.416015625, 0.871874988079071, 0.51953125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+  Object 6/10: car at [0.4124999940395355, 0.4140625, 0.6109374761581421, 0.513671875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 7/10: car at [0.21562500298023224, 0.44140625, 0.2734375, 0.49609375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1294
+  Object 8/10: person at [0.17499999701976776, 0.4375, 0.19374999403953552, 0.494140625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 9/10: person at [0.08749999850988388, 0.43359375, 0.11093749850988388, 0.5]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.984 | pert=0.1227
+  Object 10/10: person at [0.668749988079071, 0.42578125, 0.6890624761581421, 0.484375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+
+============================================================
+Image 30: ID=29 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: person at [0.0, 0.42578125, 0.01875000074505806, 0.498046875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.753 | pert=0.1127
+  Object 2/9: person at [0.4671874940395355, 0.421875, 0.4984374940395355, 0.5078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.996 | pert=0.1344
+  Object 3/9: person at [0.49531251192092896, 0.41796875, 0.518750011920929, 0.501953125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+  Object 4/9: person at [0.5140625238418579, 0.42578125, 0.5375000238418579, 0.501953125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 5/9: person at [0.550000011920929, 0.423828125, 0.578125, 0.4921875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.992 | pert=0.1344
+  Object 6/9: person at [0.6234375238418579, 0.41796875, 0.645312488079071, 0.486328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.000 | pert=0.1277
+  Object 7/9: person at [0.643750011920929, 0.412109375, 0.6656249761581421, 0.4765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1261
+  Object 8/9: car at [0.10468749701976776, 0.427734375, 0.2984375059604645, 0.52734375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 9/9: person at [0.6656249761581421, 0.416015625, 0.690625011920929, 0.486328125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+
+============================================================
+Image 31: ID=30 | 13 objects
+============================================================
+
+[AttackSelector] Processing 13 objects in image...
+  Object 1/13: person at [0.02656250074505806, 0.4296875, 0.0546875, 0.5078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.988 | pert=0.1344
+  Object 2/13: person at [0.4281249940395355, 0.421875, 0.45625001192092896, 0.509765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1344
+  Object 3/13: person at [0.518750011920929, 0.4140625, 0.543749988079071, 0.501953125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.988 | pert=0.1344
+  Object 4/13: person at [0.5390625, 0.41796875, 0.557812511920929, 0.482421875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 5/13: person at [0.5546875, 0.41796875, 0.581250011920929, 0.494140625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 6/13: person at [0.598437488079071, 0.416015625, 0.621874988079071, 0.486328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 7/13: person at [0.628125011920929, 0.412109375, 0.6484375, 0.482421875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.052 | pert=0.1304
+  Object 8/13: person at [0.6468750238418579, 0.41015625, 0.6656249761581421, 0.482421875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.000 | pert=0.1244
+  Object 9/13: person at [0.6578124761581421, 0.421875, 0.6875, 0.482421875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.005 | pert=0.1261
+  Object 10/13: car at [0.48124998807907104, 0.4375, 0.5249999761581421, 0.48046875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 11/13: car at [0.21718749403953552, 0.44140625, 0.2718749940395355, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1261
+  Object 12/13: person at [0.19374999403953552, 0.4375, 0.21406249701976776, 0.494140625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+  Object 13/13: person at [0.16875000298023224, 0.435546875, 0.18906250596046448, 0.48828125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1227
+
+============================================================
+Image 32: ID=31 | 12 objects
+============================================================
+
+[AttackSelector] Processing 12 objects in image...
+  Object 1/12: person at [0.06718750298023224, 0.431640625, 0.0859375, 0.501953125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.869 | pert=0.1327
+  Object 2/12: person at [0.05156249925494194, 0.431640625, 0.0703125, 0.501953125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 3/12: person at [0.37968748807907104, 0.423828125, 0.40156251192092896, 0.5078125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1294
+  Object 4/12: person at [0.5640624761581421, 0.416015625, 0.582812488079071, 0.486328125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+  Object 5/12: person at [0.5796874761581421, 0.41796875, 0.6000000238418579, 0.48828125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 6/12: person at [0.6031249761581421, 0.416015625, 0.625, 0.486328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 7/12: person at [0.6640625, 0.412109375, 0.6890624761581421, 0.486328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1257
+  Object 8/12: person at [0.640625, 0.4140625, 0.667187511920929, 0.48828125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+  Object 9/12: car at [0.48124998807907104, 0.435546875, 0.5249999761581421, 0.48046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 10/12: car at [0.21718749403953552, 0.44140625, 0.2750000059604645, 0.494140625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 11/12: person at [0.17343750596046448, 0.43359375, 0.19374999403953552, 0.494140625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 12/12: person at [0.20000000298023224, 0.4375, 0.21875, 0.48828125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+
+============================================================
+Image 33: ID=32 | 11 objects
+============================================================
+
+[AttackSelector] Processing 11 objects in image...
+  Object 1/11: car at [0.47968751192092896, 0.435546875, 0.5249999761581421, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.988 | pert=0.1294
+  Object 2/11: car at [0.21562500298023224, 0.44140625, 0.2734375, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+  Object 3/11: person at [0.33125001192092896, 0.42578125, 0.3531250059604645, 0.51171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1344
+  Object 4/11: person at [0.5640624761581421, 0.41796875, 0.582812488079071, 0.484375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1211
+  Object 5/11: person at [0.5796874761581421, 0.4140625, 0.6015625, 0.486328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 6/11: person at [0.6078125238418579, 0.431640625, 0.6265624761581421, 0.486328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 7/11: person at [0.6234375238418579, 0.41796875, 0.645312488079071, 0.484375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1336
+  Object 8/11: person at [0.6578124761581421, 0.416015625, 0.6796875, 0.478515625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 9/11: person at [0.08906249701976776, 0.4375, 0.11093749850988388, 0.501953125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 10/11: person at [0.06406249850988388, 0.43359375, 0.0859375, 0.505859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.992 | pert=0.1294
+  Object 11/11: person at [0.17656250298023224, 0.435546875, 0.19687500596046448, 0.49609375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.991 | pert=0.1261
+
+============================================================
+Image 34: ID=33 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: person at [0.07968749850988388, 0.435546875, 0.09843750298023224, 0.51171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.993 | pert=0.1327
+  Object 2/10: person at [0.28125, 0.423828125, 0.30937498807907104, 0.51171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+  Object 3/10: person at [0.5375000238418579, 0.423828125, 0.5640624761581421, 0.49609375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.989 | pert=0.1311
+  Object 4/10: person at [0.5234375, 0.4296875, 0.542187511920929, 0.50390625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1274
+  Object 5/10: person at [0.6421874761581421, 0.408203125, 0.6640625, 0.484375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 6/10: person at [0.659375011920929, 0.4140625, 0.682812511920929, 0.482421875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 7/10: car at [0.4765625, 0.439453125, 0.526562511920929, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 8/10: car at [0.21250000596046448, 0.44140625, 0.27812498807907104, 0.49609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 9/10: person at [0.19062499701976776, 0.439453125, 0.21250000596046448, 0.494140625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 10/10: person at [0.17656250298023224, 0.4375, 0.1953125, 0.4921875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+
+============================================================
+Image 35: ID=34 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: car at [0.4984374940395355, 0.435546875, 0.5249999761581421, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.592 | pert=0.1344
+  Object 2/7: car at [0.21562500298023224, 0.4453125, 0.23749999701976776, 0.48828125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+  Object 3/7: car at [0.2562499940395355, 0.443359375, 0.2750000059604645, 0.48828125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1291
+  Object 4/7: person at [0.4828124940395355, 0.423828125, 0.5062500238418579, 0.501953125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+  Object 5/7: person at [0.23749999701976776, 0.431640625, 0.2593750059604645, 0.513671875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1334
+  Object 6/7: person at [0.1953125, 0.4375, 0.21718749403953552, 0.49609375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1241
+  Object 7/7: person at [0.0, 0.4296875, 0.03437500074505806, 0.6015625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=-0.998 | pert=0.1323
+
+============================================================
+Image 36: ID=35 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: person at [0.0, 0.4296875, 0.0625, 0.595703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1294
+  Object 2/7: person at [0.42500001192092896, 0.42578125, 0.4593749940395355, 0.509765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.316 | pert=0.1294
+  Object 3/7: person at [0.12968750298023224, 0.421875, 0.15781250596046448, 0.58984375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 4/7: person at [0.14531250298023224, 0.4140625, 0.20156249403953552, 0.58984375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 5/7: car at [0.47968751192092896, 0.43359375, 0.5234375, 0.484375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1261
+  Object 6/7: car at [0.21406249701976776, 0.44140625, 0.26875001192092896, 0.4921875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 7/7: person at [0.7328125238418579, 0.408203125, 0.754687488079071, 0.474609375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+
+============================================================
+Image 37: ID=36 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: car at [0.21406249701976776, 0.443359375, 0.2718749940395355, 0.49609375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 2/7: car at [0.2734375, 0.435546875, 0.34375, 0.49609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.016 | pert=0.1277
+  Object 3/7: car at [0.40156251192092896, 0.435546875, 0.4312500059604645, 0.466796875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 4/7: car at [0.47968751192092896, 0.431640625, 0.528124988079071, 0.484375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1291
+  Object 5/7: person at [0.6499999761581421, 0.37109375, 0.690625011920929, 0.57421875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1344
+  Object 6/7: person at [0.614062488079071, 0.35546875, 0.667187511920929, 0.578125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 7/7: person at [0.0, 0.408203125, 0.03125, 0.6015625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+
+============================================================
+Image 38: ID=37 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: person at [0.12343750149011612, 0.40234375, 0.17343750596046448, 0.595703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 2/7: person at [0.6546875238418579, 0.3671875, 0.690625011920929, 0.578125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.978 | pert=0.1341
+  Object 3/7: person at [0.612500011920929, 0.353515625, 0.684374988079071, 0.58203125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 4/7: car at [0.4781250059604645, 0.435546875, 0.526562511920929, 0.48828125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1294
+  Object 5/7: car at [0.4078125059604645, 0.439453125, 0.4359374940395355, 0.46875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=-0.003 | pert=0.1327
+  Object 6/7: car at [0.30937498807907104, 0.431640625, 0.36406248807907104, 0.486328125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.001 | pert=0.1244
+  Object 7/7: car at [0.21562500298023224, 0.44140625, 0.27656251192092896, 0.498046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1311
+
+============================================================
+Image 39: ID=38 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: car at [0.21562500298023224, 0.44140625, 0.26875001192092896, 0.49609375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1311
+  Object 2/8: car at [0.3375000059604645, 0.435546875, 0.38749998807907104, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1294
+  Object 3/8: car at [0.4156250059604645, 0.4375, 0.44218748807907104, 0.46875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.008 | pert=0.1261
+  Object 4/8: car at [0.4781250059604645, 0.439453125, 0.526562511920929, 0.484375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.005 | pert=0.1227
+  Object 5/8: car at [0.8500000238418579, 0.42578125, 0.8734375238418579, 0.478515625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.988 | pert=0.1261
+  Object 6/8: person at [0.651562511920929, 0.37109375, 0.690625011920929, 0.5703125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 7/8: person at [0.6187499761581421, 0.3515625, 0.684374988079071, 0.583984375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 8/8: person at [0.25468748807907104, 0.39453125, 0.33906251192092896, 0.595703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+
+============================================================
+Image 40: ID=39 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: person at [0.6499999761581421, 0.373046875, 0.690625011920929, 0.5703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.508 | pert=0.1327
+  Object 2/8: person at [0.6171875, 0.359375, 0.667187511920929, 0.58203125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 3/8: person at [0.832812488079071, 0.3671875, 0.871874988079071, 0.5625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 4/8: person at [0.3921875059604645, 0.3984375, 0.48124998807907104, 0.591796875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.995 | pert=0.1244
+  Object 5/8: car at [0.8203125, 0.423828125, 0.871874988079071, 0.48828125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 6/8: car at [0.47187501192092896, 0.439453125, 0.5249999761581421, 0.484375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 7/8: car at [0.3578124940395355, 0.4375, 0.4000000059604645, 0.48046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1277
+  Object 8/8: car at [0.21250000596046448, 0.44140625, 0.28125, 0.498046875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+
+============================================================
+Image 41: ID=40 | 10 objects
+============================================================
+
+[AttackSelector] Processing 10 objects in image...
+  Object 1/10: car at [0.839062511920929, 0.3984375, 0.870312511920929, 0.494140625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.931 | pert=0.1344
+  Object 2/10: person at [0.800000011920929, 0.365234375, 0.8609374761581421, 0.57421875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1344
+  Object 3/10: person at [0.65625, 0.44921875, 0.692187488079071, 0.576171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.992 | pert=0.1327
+  Object 4/10: person at [0.6187499761581421, 0.3515625, 0.6625000238418579, 0.578125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.996 | pert=0.1344
+  Object 5/10: person at [0.589062511920929, 0.41015625, 0.6156250238418579, 0.48828125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 6/10: person at [0.5328124761581421, 0.392578125, 0.604687511920929, 0.5859375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 7/10: car at [0.4765625, 0.439453125, 0.5249999761581421, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1211
+  Object 8/10: car at [0.4203124940395355, 0.44140625, 0.4468750059604645, 0.46875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=-0.001 | pert=0.1211
+  Object 9/10: car at [0.3734374940395355, 0.4296875, 0.41718751192092896, 0.482421875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1207
+  Object 10/10: car at [0.21250000596046448, 0.44140625, 0.2750000059604645, 0.501953125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+
+============================================================
+Image 42: ID=41 | 12 objects
+============================================================
+
+[AttackSelector] Processing 12 objects in image...
+  Object 1/12: person at [0.792187511920929, 0.359375, 0.84375, 0.572265625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1311
+  Object 2/12: car at [0.739062488079071, 0.427734375, 0.792187511920929, 0.486328125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 3/12: car at [0.7640625238418579, 0.42578125, 0.800000011920929, 0.49609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 4/12: car at [0.832812488079071, 0.3984375, 0.8734375238418579, 0.484375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 5/12: person at [0.6156250238418579, 0.353515625, 0.6656249761581421, 0.58203125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1344
+  Object 6/12: person at [0.6499999761581421, 0.369140625, 0.6812499761581421, 0.583984375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 7/12: person at [0.565625011920929, 0.412109375, 0.5921875238418579, 0.490234375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1244
+  Object 8/12: car at [0.4765625, 0.435546875, 0.5249999761581421, 0.486328125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1311
+  Object 9/12: car at [0.4203124940395355, 0.44140625, 0.4468750059604645, 0.47265625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.994 | pert=0.1261
+  Object 10/12: car at [0.3890624940395355, 0.4375, 0.421875, 0.474609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.004 | pert=0.1207
+  Object 11/12: car at [0.21406249701976776, 0.44140625, 0.27656251192092896, 0.498046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 12/12: person at [0.7015625238418579, 0.40625, 0.7328125238418579, 0.52734375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.993 | pert=0.1344
+
+============================================================
+Image 43: ID=42 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: car at [0.5171874761581421, 0.435546875, 0.5703125, 0.48828125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+  Object 2/7: car at [0.3843750059604645, 0.412109375, 0.46406251192092896, 0.490234375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1274
+  Object 3/7: car at [0.2265625, 0.431640625, 0.2890625, 0.494140625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.001 | pert=0.1207
+  Object 4/7: person at [0.609375, 0.408203125, 0.635937511920929, 0.498046875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 5/7: person at [0.871874988079071, 0.322265625, 0.9375, 0.6484375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 6/7: person at [0.8218749761581421, 0.29296875, 0.8890625238418579, 0.673828125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 7/7: car at [0.4828124940395355, 0.439453125, 0.504687488079071, 0.462890625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+
+============================================================
+Image 44: ID=43 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: person at [0.5531250238418579, 0.408203125, 0.596875011920929, 0.505859375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1261
+  Object 2/9: person at [0.909375011920929, 0.302734375, 0.995312511920929, 0.703125]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.931 | pert=0.1344
+  Object 3/9: person at [0.7718750238418579, 0.275390625, 0.9515625238418579, 0.736328125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1261
+  Object 4/9: person at [0.7640625238418579, 0.32421875, 0.8453124761581421, 0.71484375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 5/9: car at [0.5062500238418579, 0.431640625, 0.559374988079071, 0.484375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1327
+  Object 6/9: car at [0.39531248807907104, 0.412109375, 0.4609375, 0.482421875]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1275
+  Object 7/9: car at [0.20781250298023224, 0.431640625, 0.2796874940395355, 0.494140625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 8/9: car at [0.4749999940395355, 0.4375, 0.49531251192092896, 0.4609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 9/9: car at [0.46406251192092896, 0.4375, 0.4828124940395355, 0.4609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1227
+
+============================================================
+Image 45: ID=44 | 8 objects
+============================================================
+
+[AttackSelector] Processing 8 objects in image...
+  Object 1/8: car at [0.856249988079071, 0.41796875, 0.9984375238418579, 0.53515625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1344
+  Object 2/8: car at [0.39375001192092896, 0.421875, 0.44999998807907104, 0.482421875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1294
+  Object 3/8: car at [0.17656250298023224, 0.435546875, 0.25468748807907104, 0.498046875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1344
+  Object 4/8: person at [0.4828124940395355, 0.412109375, 0.526562511920929, 0.51171875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1244
+  Object 5/8: person at [0.645312488079071, 0.3125, 0.745312511920929, 0.78125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 6/8: person at [0.46406251192092896, 0.275390625, 0.692187488079071, 0.8125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 7/8: person at [0.4390625059604645, 0.31640625, 0.574999988079071, 0.76171875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 8/8: person at [0.30937498807907104, 0.4375, 0.328125, 0.474609375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.991 | pert=0.1194
+
+============================================================
+Image 46: ID=45 | 9 objects
+============================================================
+
+[AttackSelector] Processing 9 objects in image...
+  Object 1/9: person at [0.421875, 0.423828125, 0.45781248807907104, 0.525390625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1311
+  Object 2/9: person at [0.20468750596046448, 0.318359375, 0.3609375059604645, 0.84765625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1288
+  Object 3/9: person at [0.5953124761581421, 0.27734375, 0.78125, 0.96484375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 4/9: car at [0.6015625, 0.474609375, 0.6499999761581421, 0.53515625]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+  Object 5/9: car at [0.734375, 0.427734375, 0.917187511920929, 0.548828125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 6/9: car at [0.48124998807907104, 0.439453125, 0.534375011920929, 0.49609375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1194
+  Object 7/9: car at [0.4046874940395355, 0.43359375, 0.43281251192092896, 0.484375]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1211
+  Object 8/9: car at [0.0, 0.470703125, 0.08281250298023224, 0.625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1291
+  Object 9/9: person at [0.0, 0.26953125, 0.2578125, 0.869140625]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1277
+
+============================================================
+Image 47: ID=46 | 2 objects
+============================================================
+
+[AttackSelector] Processing 2 objects in image...
+  Object 1/2: car at [0.140625, 0.375, 0.7015625238418579, 0.650390625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.998 | pert=0.1327
+  Object 2/2: person at [0.6499999761581421, 0.2421875, 0.956250011920929, 0.927734375]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.619 | pert=0.1294
+
+============================================================
+Image 48: ID=47 | 7 objects
+============================================================
+
+[AttackSelector] Processing 7 objects in image...
+  Object 1/7: person at [0.2906250059604645, 0.421875, 0.32499998807907104, 0.529296875]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.973 | pert=0.1344
+  Object 2/7: person at [0.2718749940395355, 0.25390625, 0.46562498807907104, 0.91796875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+  Object 3/7: person at [0.7484375238418579, 0.412109375, 0.785937488079071, 0.5078125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+  Object 4/7: car at [0.8921874761581421, 0.373046875, 0.996874988079071, 0.61328125]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 5/7: car at [0.47187501192092896, 0.44140625, 0.5249999761581421, 0.49609375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1227
+  Object 6/7: car at [0.15000000596046448, 0.44140625, 0.22812500596046448, 0.50390625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1327
+  Object 7/7: car at [0.0, 0.43359375, 0.13437500596046448, 0.56640625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1277
+
+============================================================
+Image 49: ID=48 | 5 objects
+============================================================
+
+[AttackSelector] Processing 5 objects in image...
+  Object 1/5: car at [0.47187501192092896, 0.4453125, 0.5234375, 0.49609375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.997 | pert=0.1327
+  Object 2/5: car at [0.41874998807907104, 0.44140625, 0.4515624940395355, 0.478515625]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1311
+  Object 3/5: car at [0.7171875238418579, 0.400390625, 0.996874988079071, 0.5546875]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=0.999 | pert=0.1277
+  Object 4/5: car at [0.0015625000232830644, 0.369140625, 0.3343749940395355, 0.642578125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 5/5: person at [0.6968749761581421, 0.4140625, 0.731249988079071, 0.513671875]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1294
+
+============================================================
+Image 50: ID=49 | 6 objects
+============================================================
+
+[AttackSelector] Processing 6 objects in image...
+  Object 1/6: person at [0.0, 0.37109375, 0.15937499701976776, 0.765625]
+    → Hide(class_0) | ✓ SUCCESS | conf_drop=0.485 | pert=0.1277
+  Object 2/6: person at [0.09687499701976776, 0.3515625, 0.2421875, 0.734375]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 3/6: person at [0.17656250298023224, 0.47265625, 0.21875, 0.53125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1327
+  Object 4/6: person at [0.17812499403953552, 0.423828125, 0.19687500596046448, 0.453125]
+    → Hide(class_0) | ✗ FAILED | conf_drop=0.000 | pert=0.1311
+  Object 5/6: car at [0.4078125059604645, 0.431640625, 0.5296875238418579, 0.55859375]
+    → Hide(class_2) | ✓ SUCCESS | conf_drop=1.000 | pert=0.1277
+  Object 6/6: car at [0.5078125, 0.345703125, 0.9921875, 0.626953125]
+    → Hide(class_2) | ✗ FAILED | conf_drop=0.000 | pert=0.1344
+
+============================================================
+  ATTACK RESULTS SUMMARY
+============================================================
+Images processed: 50
+Object-level Attack Success Rate: 50.2% (220/438 objects)
+Image-level Attack Success Rate: 100.0% (50/50 images with >=1 success)
+Mean per-image object success rate: 52.5%
+  person    : 45.2%
+  car       : 63.3%
+
+Strategy Usage:
+  Hide(class_0): 271 times
+  Hide(class_2): 167 times
+
+✓ Results saved to results/adaptive_attack_fixed/attack_results.json
+============================================================
