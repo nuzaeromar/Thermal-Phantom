@@ -1,0 +1,16 @@
+id = unique annotation/bounding-box ID
+image_id = ID of the image this box belongs to
+category_id = object class/category ID
+bbox = [x_min, y_min, width, height]
+area = bbox width × height
+iscrowd = 0 means single object, 1 means crowd/group
+score = model confidence
+
+Category IDs:
+1 = person
+2 = mining equipment
+3 = vehicle
+4 = debris
+5 = fire
+6 = helmet
+7 = backpack
