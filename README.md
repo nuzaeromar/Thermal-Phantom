@@ -1,4 +1,4 @@
-# ThermalMirage
+# Thermal Phantom: Perceptually Consistent Adversarial Attack on Thermal Object Detectors
 
 ThermalMirage generates adversarial thermal images for FLIR object detection using class conditional GAN priors, trained object diffusion, analytic context edits, and detector guided refinement.
 
