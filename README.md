@@ -1,6 +1,6 @@
 # Thermal Phantom
 
-This repository contains the implementation of ## "Thermal Phantom: Perceptually Consistent Adversarial Attack on Thermal Object Detectors", accepted at **WACV [2026]**.
+This repository contains the implementation of **"Thermal Phantom: Perceptually Consistent Adversarial Attack on Thermal Object Detectors"**, accepted at **WACV [2026]**.
 
 Thermal Phantom generates adversarial thermal images for FLIR object detection using class conditional GAN priors, trained object diffusion, analytic context edits, and detector guided refinement.
 
