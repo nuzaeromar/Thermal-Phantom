@@ -1,6 +1,8 @@
-# Thermal Phantom: Perceptually Consistent Adversarial Attack on Thermal Object Detectors
+# Thermal Phantom
 
-ThermalMirage generates adversarial thermal images for FLIR object detection using class conditional GAN priors, trained object diffusion, analytic context edits, and detector guided refinement.
+This repository contains the implementation of "Thermal Phantom: Perceptually Consistent Adversarial Attack on Thermal Object Detectors", accepted at **WACV [2026]**.
+
+Thermal Phantom generates adversarial thermal images for FLIR object detection using class conditional GAN priors, trained object diffusion, analytic context edits, and detector guided refinement.
 
 The main experiment entry point is `run_multiclass.py`; `run.py` provides GAN training and the older single-strategy workflow.
 
@@ -9,7 +11,7 @@ The main experiment entry point is `run_multiclass.py`; `run.py` provides GAN tr
 From the workspace root:
 
 ```bash
-cd thermal_mirage
+cd %your directory
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
@@ -316,3 +318,8 @@ results/adaptive_fasterrcnn/
 Object-level ASR divides successful attacked objects by all attacked objects. Success requires a confident clean match and either suppression below the threshold for hiding or a match to the selected target class for misclassification. Image-level ASR counts images with at least one successful object. `overall_success_rate` is the mean of the per-image object success rates, so it can differ from aggregate object-level ASR. Set `--eval_conf` and `--eval_iou` explicitly when comparing runs.
 
 The older `run.py --mode attack` instead writes `eval_summary.json`, `per_image_results.json`, and visualizations under `images/`.
+
+
+## Citation
+
+If you use this work, please cite.
