@@ -35,6 +35,8 @@ The examples use `--device cuda`. Use `--device cpu` when CUDA is unavailable; t
 
 ## 2. Prepare the dataset
 
+The complete MineThermal dataset is available in [`mineThermal/`](mineThermal/). This folder contains the thermal images (`thermal/`), RGB images (`rgb/`), previews (`previews/`), COCO annotations (`mineThermal_coco.json`), and category information (`category.txt`).
+
 Set `FLIR_ROOT` to the dataset root, containing both splits:
 
 ```text
